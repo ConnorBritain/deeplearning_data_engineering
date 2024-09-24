@@ -61,7 +61,7 @@ We explore different data modeling methodologies, apply transformations to prepa
 
 ## 📂 Repository Contents
 
-- **/graded-assessments/**: Solutions to graded assessments.
+- **/graded_assessments/**: Solutions to graded assessments.
 - **/labs/**: Lab exercises and solutions.
 - **/data_models/**: ER diagrams and schema designs.
 - **/transformations/**: Scripts and notebooks for data transformations.

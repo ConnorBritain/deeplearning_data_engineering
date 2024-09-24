@@ -51,7 +51,7 @@ In this course, we explore the fundamentals of data engineering, including the l
 
 ## 📂 Repository Contents
 
-- **/graded-assessments/**: Solutions to graded assessments.
+- **/graded_assessments/**: Solutions to graded assessments.
 - **/labs/**: Lab exercises and solutions.
 - **/notes/**: Personal notes and summaries of key concepts.
 - **/code/**: Sample code for data pipelines and AWS implementations.

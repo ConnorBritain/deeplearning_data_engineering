@@ -55,7 +55,7 @@ We cover the underlying mechanisms of data storage, different storage abstractio
 
 ## 📂 Repository Contents
 
-- **/graded-assessments/**: Solutions to graded assessments.
+- **/graded_assessments/**: Solutions to graded assessments.
 - **/labs/**: Lab exercises and solutions.
 - **/data_lakehouse/**: Implementation examples of data lakehouse architectures.
 - **/sql_queries/**: Advanced SQL queries and performance tests.
