@@ -9,10 +9,10 @@ The Data Engineering Specialization is a comprehensive program designed to equip
 ## 📑 Table of Contents
 
 - [Courses](#courses)
-  - [Course 1: Introduction to Data Engineering](#course-1-introduction-to-data-engineering)
-  - [Course 2: Data Ingestion and DataOps](#course-2-data-ingestion-and-dataops)
-  - [Course 3: Data Storage and Retrieval](#course-3-data-storage-and-retrieval)
-  - [Course 4: Data Modeling and Transformation](#course-4-data-modeling-and-transformation)
+  - [Course 1: Introduction to Data Engineering](https://github.com/ConnorBritain/deeplearning_data_engineering/tree/main/c1_introduction-to-data-engineering)
+  - [Course 2: Data Ingestion and DataOps](https://github.com/ConnorBritain/deeplearning_data_engineering/tree/main/c2_source-systems-data-ingestion-and-pipelines)
+  - [Course 3: Data Storage and Retrieval](https://github.com/ConnorBritain/deeplearning_data_engineering/tree/main/c3_data-storage-and-queries)
+  - [Course 4: Data Modeling and Transformation](https://github.com/ConnorBritain/deeplearning_data_engineering/tree/main/c4_data-modeling-transformation-and-serving)
 - [🛠 Skills Developed](#-skills-developed)
 - [🔧 Technologies Used](#-technologies-used)
 - [📄 License](#-license)
