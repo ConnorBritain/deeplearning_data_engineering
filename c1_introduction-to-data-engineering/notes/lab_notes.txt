@@ -1,0 +1,55 @@
+LAB SETUP
+.
+.
+
+Environment Name: de-c1w2
+
+Instance Type: t3.small
+
+Connection: SSH
+
+VPC Settings: 
+-- VPC: de-c1w2
+-- Subnet: de-c1w2-public-subnet
+
+CREATE
+
+-----
+
+DATABASE CREATION
+.
+.
+
+aws rds describe-db-instances --db-instance-identifier <MySQL-DB-name> --output text --query "DBInstances[].Endpoint.Address"
+---de-c1w2-rds
+
+mysql --host=<MySQLEndpoint> --user=<DatabaseUserName> --password=<Password> --port=3306
+---de-c1w2-rds.cd2oeokwyhdc.us-east-1.rds.amazonaws.com
+---admin
+---adminpwrd
+
+use classicmodels;
+show tables;
+
+exit
+
+---
+
+TERRAFORM: IaC DEPLOYMENT + ETL JOB SETUP
+
+```set up architecture```
+
+cd infrastructure/terraform
+
+terraform init
+
+terraform plan
+
+terraform apply
+
+```start the ETL Glue Job```
+
+aws glue start-job-run --job-name de-c1w2-etl-job | jq -r '.JobRunId'
+
+aws glue get-job-run --job-name de-c1w2-etl-job --run-id <JobRunID> --output text --query "JobRun.JobRunState"
+---jr_decaa2006c0a5546927683283e20299557935fc1394f5a9ced8f51201eca852
