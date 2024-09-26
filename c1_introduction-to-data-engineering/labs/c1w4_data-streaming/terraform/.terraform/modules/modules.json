@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"etl","Source":"./modules/etl","Dir":"modules/etl"},{"Key":"streaming_inference","Source":"./modules/streaming-inference","Dir":"modules/streaming-inference"},{"Key":"vector_db","Source":"./modules/vector-db","Dir":"modules/vector-db"}]}

@@ -1,0 +1,42 @@
+Building End-to-End Batch and Streaming Pipelines
+Based on Stakeholder Requirements
+
+
+aws rds describe-db-instances --db-instance-identifier de-c1w4-rds --output text --query "DBInstances[].Endpoint.Address"
+
+de-c1w4-rds.cbuyoq02wbw2.us-east-1.rds.amazonaws.com
+
+mysql --host=de-c1w4-rds.cbuyoq02wbw2.us-east-1.rds.amazonaws.com --user=admin --password=adminpwrd --port=3306
+
+
+--
+
+Glue ETL Job:
+
+aws glue start-job-run --job-name de-c1w4-etl-job | jq -r '.JobRunId'
+jr_9a037b3fae43ee9416801863fc43d89f961b354f969dd9d086b8cbc06499291d
+
+aws glue get-job-run --job-name de-c1w4-etl-job --run-id <JobRunID> --output text --query "JobRun.JobRunState"
+aws glue get-job-run --job-name de-c1w4-etl-job --run-id jr_9a037b3fae43ee9416801863fc43d89f961b354f969dd9d086b8cbc06499291d --output text --query "JobRun.JobRunState"
+
+
+VECTOR DB:
+
+postgres
+qY95C6jPuiI
+
+s3 bucket name:
+de-c1w4-326091212390-us-east-1-ml-artifacts
+
+vector_db_host:
+de-c1w4-vector-db.cbuyoq02wbw2.us-east-1.rds.amazonaws.com
+
+Connection command:
+psql --host=de-c1w4-vector-db.cbuyoq02wbw2.us-east-1.rds.amazonaws.com --username=postgres --password --port=5432
+
+\c postgres;
+\i '../sql/embeddings.sql'
+
+
+vector db endpoint:
+de-c1w4-vector-db.cbuyoq02wbw2.us-east-1.rds.amazonaws.com

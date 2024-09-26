@@ -1,0 +1,29 @@
+c1w3: Good Data Architecture -- LAB
+
+
+Load Balancer Address:
+de-c1w3-alb-1556490825.us-east-1.elb.amazonaws.com
+
+
+AWS Cloudshell command to install Apache Benchmark:
+sudo yum install httpd-tools -y
+
+Stress-Test via Apache Benchmark:
+ab -n 7000 -c 50 http://de-c1w3-alb-1556490825.us-east-1.elb.amazonaws.com/
+
+
+SECURITY CHECKS:
+
+<ALB-DNS>:90
+http://de-c1w3-alb-1556490825.us-east-1.elb.amazonaws.com:90/
+
+Edit ALB ACL to only allow traffic over :443 
+
+
+AUTOSCALING POLICY:
+Policy type: Target tracking scaling
+Scaling policy name: de-c1w3-scaling-policy
+Metric type: Application Load Balancer request count per target
+Target group: de-c1w3-ec2-tg-port80
+Target value: 60
+Instance warmup: 60 seconds
