@@ -1,0 +1,74 @@
+de-c2w1a1
+
+CREDENTIALS:
+u: postgres
+p: postgrespwrd
+
+sudo yum install postgresql15.x86_64 -y
+
+aws rds describe-db-instances --db-instance-identifier de-c2w1a1-rds --output text --query "DBInstances[].Endpoint.Address"
+- PostgreSQLEndpoint: de-c2w1a1-rds.c72uk4igiq95.us-east-1.rds.amazonaws.com
+
+
+psql --host=de-c2w1a1-rds.c72uk4igiq95.us-east-1.rds.amazonaws.com --username=postgres --password --port=5432
+
+FAILURE TO CONNECT.
+
+Begin troubleshooting:
+
+
+----
+
+TROUBLESHOOTING LOG:
+
+Network issue #1:
+
+VPCs:
+RDS -> vpc-093aba88b05353a49
+Cloud9 -> vpc-093aba88b05353a49
+
+Subnets:
+RDS -> subnet-0d00f04c1d8883c52 // subnet-050616dc2db21cc11
+Cloud9 -> subnet-03be9c59979a2279b
+
+
+Security:
+
+Security Group ID:
+sg-0351b7ccbf266d9cb
+
+Open port 5432 on the RDS security group, specifically for all items in the Cloud9 instance sg
+
+NEW ERROR: psql: error: connection to server at "de-c2w1a1-rds.c72uk4igiq95.us-east-1.rds.amazonaws.com" (10.0.3.186), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+connection to server at "de-c2w1a1-rds.c72uk4igiq95.us-east-1.rds.amazonaws.com" (10.0.3.186), port 5432 failed: FATAL:  no pg_hba.conf entry for host "10.0.1.75", user "postgres", database "postgres", no encryption
+
+change pw to adminpwrd
+
+SUCCESS
+
+---
+
+FIXING PERMISSION ERRORS
+
+s3 bucket:
+de-c2w1a1-802649237987-us-east-1-data-test
+
+
+ADD IAM POLICY TO CLOUD9:
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::de-c2w1a1-802649237987-us-east-1-data-test/csv/*",
+            "Condition": {
+                "IpAddress": {
+                    "aws:SourceIp": "3.92.1.28" 
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,4 @@
+aws s3 cp --recursive s3://dlai-data-engineering/labs/c2w1lab3-525309/ ./
+
+ source scripts/setup_jupyter_env.sh
+

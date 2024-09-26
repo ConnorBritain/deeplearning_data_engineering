@@ -1,0 +1,8 @@
+de-c2w1lab2
+
+aws s3 cp --recursive s3://dlai-data-engineering/labs/c2w1lab2-398615/ ./
+
+(for solution: aws s3 cp --recursive s3://dlai-data-engineering/labs/c2w1lab2-398615-solution/ ./)
+
+--
+
